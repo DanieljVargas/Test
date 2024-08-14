@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Tienda</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="catalog">
+      <h1>Catálogo de Productos</h1>
+
+      <!-- Lista horizontal de categorías -->
+      <nav class="category-nav">
+        <ul>
+          <li><a href="#categoria1">Bebidas</a></li>
+          <li><a href="#categoria2">Harinas</a></li>
+          <li><a href="#categoria3">Snacks</a></li>
+        </ul>
+      </nav>
+
+      <div
+        id="categoria1"
+        class="elementor-element elementor-element-9c3be3c e-con-full e-flex e-con e-child"
+        data-id="9c3be3c"
+        data-element_type="container"
+      >
+        <div
+          class="elementor-element elementor-element-3511ee4 elementor-vertical-align-middle elementor-widget__width-inherit elementor-widget elementor-widget-image-box"
+          data-id="3511ee4"
+          data-element_type="widget"
+        >
+          <div class="elementor-widget-container">
+            <div class="elementor-image-box-wrapper">
+              <div class="elementor-image-box-content">
+                <h5 class="elementor-image-box-title">Maltin Polar</h5>
+                <p class="elementor-image-box-description">$1.20</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="elementor-element elementor-element-16c7220 elementor-widget elementor-widget-html"
+          data-id="16c7220"
+          data-element_type="widget"
+        >
+          <div class="elementor-widget-container">
+            <button class="btn" onclick="addToCart(this)">
+              Añadir al pedido
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="categoria2"
+        class="elementor-element elementor-element-9c3be3c e-con-full e-flex e-con e-child"
+        data-id="9c3be3c"
+        data-element_type="container"
+      >
+        <div
+          class="elementor-element elementor-element-3511ee4 elementor-vertical-align-middle elementor-widget__width-inherit elementor-widget elementor-widget-image-box"
+          data-id="3511ee4"
+          data-element_type="widget"
+        >
+          <div class="elementor-widget-container">
+            <div class="elementor-image-box-wrapper">
+              <div class="elementor-image-box-content">
+                <h5 class="elementor-image-box-title">Harina PAN</h5>
+                <p class="elementor-image-box-description">$1.80</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="elementor-element elementor-element-16c7220 elementor-widget elementor-widget-html"
+          data-id="16c7220"
+          data-element_type="widget"
+        >
+          <div class="elementor-widget-container">
+            <button class="btn" onclick="addToCart(this)">
+              Añadir al pedido
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="categoria3"
+        class="elementor-element elementor-element-9c3be3c e-con-full e-flex e-con e-child"
+        data-id="9c3be3c"
+        data-element_type="container"
+      >
+        <div
+          class="elementor-element elementor-element-3511ee4 elementor-vertical-align-middle elementor-widget__width-inherit elementor-widget elementor-widget-image-box"
+          data-id="3511ee4"
+          data-element_type="widget"
+        >
+          <div class="elementor-widget-container">
+            <div class="elementor-image-box-wrapper">
+              <div class="elementor-image-box-content">
+                <h5 class="elementor-image-box-title">Polarcita</h5>
+                <p class="elementor-image-box-description">$1.50</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="elementor-element elementor-element-16c7220 elementor-widget elementor-widget-html"
+          data-id="16c7220"
+          data-element_type="widget"
+        >
+          <div class="elementor-widget-container">
+            <button class="btn" onclick="addToCart(this)">
+              Añadir al pedido
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart">
+      <h1>Carrito de Compras</h1>
+      <div id="summary1">
+        <div id="total-quantity"></div>
+        <div id="view-order-btn-container">
+          <button
+            id="view-order-btn"
+            style="display: none"
+            class="btn2"
+            onclick="toggleCartVisibility()"
+          >
+            Ver Pedido
+          </button>
+        </div>
+      </div>
+      <div id="cart-details" style="display: none">
+        <div id="cart-items"></div>
+        <h6 id="subtotal"></h6>
+        <div id="igtf" style="display: none"></div>
+        <div id="total" style="display: none"></div>
+        <div id="exchangeRate" style="display: none"></div>
+        <div id="subtotalBolivares" style="display: none"></div>
+        <div class="payment-method">
+          <label for="payment">Método de Pago:</label>
+          <select id="payment" onchange="updateCartDetails()">
+            <option value="Divisas">Divisas</option>
+            <option value="Pago Móvil">Pago Móvil</option>
+            <option value="Punto de Venta">Punto de Venta</option>
+            <option value="Zelle">Zelle</option>
+          </select>
+        </div>
+
+        <!-- Contenedor para mostrar información adicional del método de pago -->
+        <div id="payment-info" style="display: none">
+          <img
+            id="payment-logo"
+            src=""
+            alt="Logo del método de pago"
+            style="width: 100px; height: auto"
+          />
+          <div id="payment-details"></div>
+        </div>
+
+        <h6>Datos de Facturación</h6>
+        <div id="billingModal">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="ci">CI:</label>
+          <input type="text" id="ci" name="ci" required />
+          <label for="phone">Número de Teléfono:</label>
+          <input type="tel" id="phone" name="phone" required />
+          <button class="btn3" onclick="validateAndSubmit()">
+            Realizar Pedido
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
