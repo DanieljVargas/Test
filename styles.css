@@ -18,10 +18,6 @@ body {
   padding: 10px 0;
 }
 
-button {
-  margin-top: 10px;
-}
-
 .cart-item button {
   margin-left: 10px;
 }
@@ -32,9 +28,7 @@ button {
 #ws-container {
   display: none;
 }
-.elementor-heading-title {
-  display: none;
-}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
